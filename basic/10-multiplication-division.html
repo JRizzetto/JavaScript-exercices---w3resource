@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: aquamarine;
+        display: flex;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid gray;
+        padding: 20px;
+        gap: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <label for="number1">
+        1st Number :
+        <input type="number" placeholder="Enter 1st number" id="firstNumber" />
+      </label>
+      <label for="number2">
+        2nd Number:
+        <input type="number" placeholder="Enter 2nd number" id="secondNumber" />
+      </label>
+
+      <div class="btnContainer">
+        <button id="btnMultiply">Multiply</button>
+        <button id="btnDivide">Divide</button>
+      </div>
+
+      <div class="result">
+        <p>The result is:</p>
+        <p>120</p>
+      </div>
+    </div>
+    <script src="./10-multiplication-division.js"></script>
+  </body>
+</html>
