@@ -6,10 +6,11 @@ positive and another one is negative.
 */
 
 function factor(n1, n2) {
-  let number1 = n1 < 0 ? false : true;
-  let number2 = n2 < 0 ? false : true;
+  if ((n1 < 0 && n2 > 0) || (n1 > 0 && n2 < 0)) {
+    return true;
+  }
 
-  return `${n1} = ${number1} and ${n2} = ${number2}`;
+  return false;
 }
 
-console.log(factor(-10, 30));
+console.log(factor(-10, 20));

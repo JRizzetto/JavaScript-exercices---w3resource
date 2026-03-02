@@ -1,0 +1,12 @@
+/*
+27. Check if String Starts with 'Java'
+
+Write a JavaScript program to check whether a string starts with 'Java' 
+if it does not otherwise. 
+*/
+
+function stringStart(string) {
+  return string.startsWith("Java");
+}
+
+console.log(stringStart("JavaJefferson"));
