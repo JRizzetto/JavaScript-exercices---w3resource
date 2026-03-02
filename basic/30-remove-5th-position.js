@@ -7,15 +7,16 @@ appears in the string, return the string without "Script" otherwise
 return the original one.
 */
 
-function removeScript() {
-  const string = "Check if there is Script in 5th position";
-  const positionString = string.split(" ");
+function removeScript(word) {
+  let script = "Script";
+  let text = word.substring(4, script.length + 4);
 
-  if (positionString[4] === "Script") {
-    console.log(positionString.join(" "));
+  if (text === script) {
+    return (
+      word.substring(0, 4) + word.substring(script.length + 4, word.length)
+    );
   }
 
-  return;
+  return word;
 }
-
-console.log(removeScript());
+console.log(removeScript("JavaScripting"));
