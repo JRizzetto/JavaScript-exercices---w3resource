@@ -12,6 +12,9 @@ Write a JavaScript program to replace every character in a given string with the
 //   for (let i = 0; i < text.length; i++) {
 //     let index = alphabet.search(text[i]);
 
+//     console.log(i);
+//     console.log(index);
+
 //     if (index < 0) {
 //       newText += text[i];
 //     } else if (index === 25) {
@@ -26,26 +29,37 @@ Write a JavaScript program to replace every character in a given string with the
 
 // console.log(changeNextLetter("abcdez1"));
 
-// console.log("a".charCodeAt(0));
-// console.log("b".charCodeAt(0));
-// console.log("c".charCodeAt(0));
+function changeNextLetter(str) {
+  const text = str.split("");
 
-function changeNextLetter(text) {
-  let newtext = "";
+  for (let i = 0; i < str.length; i++) {
+    switch (text[i]) {
+      case " ":
+        console.log(text[i]);
+        break;
+      case "z":
+        console.log(text[i]);
+        text[i] = "a";
+        break;
+      case "Z":
+        console.log(text[i]);
+        text[i] = "A";
+        break;
+      default:
+        text[i] = String.fromCharCode(1 + text[i].charCodeAt(0));
+    }
 
-  for (let i = 0; i < text.length; i++) {
-    let char = text[i];
-
-    if ((char >= "a" && char <= "y") || (char >= "A" && char <= "Y")) {
-      newtext += String.fromCharCode(char.charCodeAt(0) + 1);
-    } else if (char === "z" || char === "Z") {
-      char === "z" ? (newtext += "a") : (newtext += "A");
-    } else {
-      newtext += char;
+    switch (text[i]) {
+      case "a":
+      case "e":
+      case "i":
+      case "o":
+      case "u":
+        text[i] = text[i].toUpperCase();
     }
   }
 
-  return newtext;
+  return text;
 }
 
-console.log(changeNextLetter("aBcDe1"));
+console.log(changeNextLetter("aBcDzZ1"));

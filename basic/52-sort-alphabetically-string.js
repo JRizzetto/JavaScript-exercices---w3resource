@@ -18,4 +18,10 @@ function sortLetters(text) {
   return listChar;
 }
 
-console.log(sortLetters("222"));
+// console.log(sortLetters("Jefferson"));
+
+function sortLetter(str) {
+  return str.toLowerCase().split("").sort().join("");
+}
+
+console.log(sortLetter("Suelem"));

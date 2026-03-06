@@ -23,4 +23,18 @@ function checkSeparated(str) {
   return false;
 }
 
-console.log(checkSeparated("Agua d b coco"));
+// console.log(checkSeparated("Agua d b coco"));
+
+function ab_Check(str) {
+  // Use regular expressions to check if the pattern 'a...b' or 'b...a' exists in the given string
+  // The test() method returns true if the pattern is found, otherwise, it returns false
+
+  const check = /a....b/.test(str) || /b....a/.test(str);
+
+  return check;
+}
+
+// Log the result of calling ab_Check with the given strings to the console
+console.log(ab_Check("Chaibnsbreak"));
+console.log(ab_Check("paneb borrowed"));
+console.log(ab_Check("abCheck"));
