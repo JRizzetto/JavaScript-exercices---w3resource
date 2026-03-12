@@ -19,7 +19,7 @@ function Kth_greatest_in_array(arr, k) {
 
     for (let j = i + 1; j < arr.length; j++) {
       if (arr[j] > arr[max_index]) {
-        max_index === j;
+        max_index = j;
       }
     }
 
@@ -30,5 +30,5 @@ function Kth_greatest_in_array(arr, k) {
   return arr;
 }
 
-console.log(Kth_greatest_in_array([1, 2, 6, 4, 5], 5)); // 4
+console.log(Kth_greatest_in_array([1, 2, 6, 4, 5], 5));
 // console.log(Kth_greatest_in_array([-10, -25, -47, -36, 0], 1)); // 0
