@@ -4,18 +4,25 @@
 Write a JavaScript program to find the number appearing most frequently in a given array of integers. 
 */
 
-function frequentNumber(arr) {
-  let equal = 0;
+function array_element_mode(arr) {
+  let ctr = []; // [1, 1, 1, 0, 0, 0, 0, 3, 0]
+  let ans = 0; // 7
 
-  for (let i = 0; i < arr.length - 1; i++) {
-    let count = 0;
+  let maxValue = Math.max(...arr);
+  for (let i = 0; i < maxValue; i++) ctr.push(0);
 
-    if (arr[i] === arr[i + 1]) {
-      count++;
+  for (let i = 0; i < arr.length; i++) {
+    ctr[arr[i] - 1]++;
+    if (ctr[arr[i] - 1] > ctr[ans]) {
+      ans = arr[i] - 1;
     }
   }
+
+  return ans + 1;
 }
 
-console.log(frequentNumber([2, 3, 3, 5, 7, 8, 8, 9, 9, 9]));
-// console.log(frequentNumber([10, 10, 20, 20, 20, 30, 30, 30, 30, 30]));
-// console.log(frequentNumber([10, 50, 50, 80, 80, 110, 110, 110, 110]));
+// console.log(array_element_mode([1, 2, 8, 8, 8, 3, 2, 2, 8, 1, 9]));
+
+function frequentNumber(arr) {}
+
+console.log(frequentNumber([1, 2, 8, 8, 8, 3, 2, 2, 8, 1, 9]));
