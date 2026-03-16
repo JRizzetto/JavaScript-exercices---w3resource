@@ -34,6 +34,7 @@ function build_Palindrome(new_str) {
     flag = true;
 
     for (let j = 0; j < i - j - 1; j++) {
+      console.log(`${i} - ${j}`);
       if (i - j - 1 < new_str.length && new_str[j] != new_str[i - j - 1]) {
         flag = false;
         break;
@@ -42,6 +43,7 @@ function build_Palindrome(new_str) {
 
     if (flag) {
       for (let j = new_str.length; j < i; j++) {
+        console.log(new_str[i - j - 1]);
         new_str += new_str[i - j - 1];
       }
       return new_str;
@@ -50,5 +52,5 @@ function build_Palindrome(new_str) {
 }
 
 // console.log(build_Palindrome("abcddc")); // Output the result for the given string
-// console.log(build_Palindrome("122")); // Output the result for the given string
-console.log(build_Palindrome("race"));
+console.log(build_Palindrome("122"));
+// console.log(build_Palindrome("race"));
