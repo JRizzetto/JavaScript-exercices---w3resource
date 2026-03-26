@@ -9,13 +9,36 @@ function swapHalveArray(arr) {
     return false;
   }
 
-  let halfStr = Math.floor((arr.length - 1) / 2);
+  let newArr = [];
 
-  console.log(halfStr);
+  let halfStr = Math.floor(arr.length / 2);
 
   for (let i = 0; i < arr.length; i++) {
-    console.log(arr[i]);
+    if (i < halfStr) {
+      newArr.push(arr[i + halfStr]);
+    } else {
+      newArr.push(arr[i - halfStr]);
+    }
   }
+
+  return newArr;
 }
 
-console.log(swapHalveArray([1, 2, 3, 4, 5, 6]));
+// console.log(swapHalveArray([1, 2, 3, 4, 5, 6]));
+
+function halv_array_swap(arr) {
+  if (arr.length % 2 !== 0) {
+    return false;
+  }
+
+  for (let i = 0; i < arr.length / 2; i++) {
+    let currently = arr[i];
+
+    arr[i] = arr[i + arr.length / 2];
+    arr[i + arr.length / 2] = currently;
+  }
+
+  return arr;
+}
+
+console.log(halv_array_swap([1, 2, 3, 4, 5, 6]));
