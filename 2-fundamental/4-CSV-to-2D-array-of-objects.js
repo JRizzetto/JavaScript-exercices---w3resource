@@ -10,19 +10,23 @@ Write a JavaScript program to convert a comma-separated value (CSV) string to a 
 */
 
 const CSV_to_JSON = (data, delimeter = ",") => {
-  let titles = data.slice(0, data.indexOf("\n") + 1);
+  let titles = data.slice(0, data.indexOf("\n")).split(delimeter);
+  let lines = data.slice(data.indexOf("\n") + 1).split("\n");
 
-  let value = data
-    .slice(data.indexOf("\n") + 1)
-    .split("\n")
-    .map((v) => v.split(delimeter));
+  let result = lines.map((line) => {
+    let listLine = line.split(delimeter);
 
-  let result = titles.reduce((obj, title, index) => {
-    obj[title] = value[index];
-  }, {});
+    let listTitle = titles.reduce((acc, title, index) => {
+      acc[title] = listLine[index];
+
+      return acc;
+    }, {});
+
+    return listTitle;
+  });
 
   return result;
 };
 
 console.log(CSV_to_JSON("col1,col2\na,b\nc,d")); // [{'col1': 'a', 'col2': 'b'}, {'col1': 'c', 'col2': 'd'}];
-// console.log(CSV_to_JSON("col1;col2\na;b\nc;d", ";")); // [{'col1': 'a', 'col2': 'b'}, {'col1': 'c', 'col2': 'd'}];
+console.log(CSV_to_JSON("col1;col2\na;b\nc;d", ";")); // [{'col1': 'a', 'col2': 'b'}, {'col1': 'c', 'col2': 'd'}];
