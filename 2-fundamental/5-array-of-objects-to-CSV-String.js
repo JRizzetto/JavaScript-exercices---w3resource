@@ -7,10 +7,20 @@ Use Array.prototype.join('\n') to combine all rows into a string.
 Omit the third argument, delimiter, to use a default delimiter of,.
 */
 
-const JSON_to_CSV = (data, delimeter = ",") => {
-  const strList = data.join(delimeter);
+const JSON_to_CSV = (datas, columns, delimeter = ",") => {
+  const firstRow = columns.join(delimeter);
 
-  console.log(strList);
+  let result = datas.map((obj) => {
+    const row = columns.map((col) => {
+      return obj[col] || "";
+    });
+
+    const quotesValues = row.map((v) => `"${v}"`);
+
+    return quotesValues.join(delimeter);
+  });
+
+  return [firstRow, ...result].join("\n");
 };
 
 console.log(
