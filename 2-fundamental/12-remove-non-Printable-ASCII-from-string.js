@@ -6,4 +6,10 @@ Write a JavaScript program to remove non-printable ASCII characters from a given
 Use String.prototype.replace() with a regular expression to remove non-printable ASCII characters.
 */
 
+const remove_non_ASCII = (str) => {
+  let newStr = str.replace(/[^\x20-\x7E]/g, "");
+
+  return newStr;
+};
+
 console.log(remove_non_ASCII("äÄçÇéÉêw3resouröceÖÐþúÚ")); // Output: w3resource
